@@ -1,0 +1,107 @@
+DROP TABLE raw_reviews_json;
+CREATE TABLE raw_reviews_json AS
+    SELECT * FROM read_json('C:\Users\Acer\OneDrive\Documents\Datasets\steam_2025_5k-dataset-reviews_20250901.json',
+                  maximum_object_size = 500000000)
+
+SELECT
+    raw_reviews_json.metadata.merged_at AS merged_time,
+    raw_reviews_json.metadata.source_files_count AS files_count,
+    raw_reviews_json.metadata.failed_files_count AS failed,
+    raw_reviews_json.metadata.total_reviews AS total_reviews,
+    raw_reviews_json.metadata.failed_files AS failed_files
+FROM raw_reviews_json;
+
+SELECT
+    reviews_list.unnest.appid AS app_id,
+    reviews_list.unnest.review_data.success AS success,
+    reviews_list.unnest.review_data.query_summary.num_reviews AS reviews_count,
+    reviews_list.unnest.review_data.query_summary.review_score AS score,
+    reviews_list.unnest.review_data.query_summary.review_score_desc AS description,
+    reviews_list.unnest.review_data.query_summary.total_positive AS positive,
+    reviews_list.unnest.review_data.query_summary.total_negative AS negative,
+    reviews_list.unnest.review_data.query_summary.total_reviews AS total,
+    review_detail.unnest.recommendationid AS review_id,
+    review_detail.unnest.author.steamid AS user_id,
+    review_detail.unnest.author.num_games_owned AS games_owned,
+    review_detail.unnest.author.num_reviews AS total_reviews,
+    review_detail.unnest.author.playtime_forever AS total_playtime,
+    review_detail.unnest.author.playtime_last_two_weeks AS two_weeks_playtime,
+    review_detail.unnest.author.playtime_at_review AS review_playtime,
+    review_detail.unnest.author.last_played AS last_played,
+    review_detail.unnest.language AS review_language,
+    review_detail.unnest.review AS text,
+    to_timestamp(review_detail.unnest.timestamp_created) AS created_at,
+    to_timestamp(review_detail.unnest.timestamp_updated) AS updated_at,
+    review_detail.unnest.voted_up AS voted_status,
+    review_detail.unnest.votes_up,
+    review_detail.unnest.votes_funny,
+    ROUND(CAST(review_detail.unnest.weighted_vote_score AS DOUBLE), 3) AS review_score,
+    review_detail.unnest.comment_count AS comments,
+    review_detail.unnest.steam_purchase AS purchase,
+    review_detail.unnest.received_for_free AS received_free,
+    review_detail.unnest.written_during_early_access AS early_access,
+    review_detail.unnest.primarily_steam_deck AS steam_deck
+FROM raw_reviews_json t
+CROSS JOIN UNNEST(t.reviews) AS reviews_list
+CROSS JOIN UNNEST(reviews_list.unnest.review_data.reviews) AS review_detail;
+
+--"unnest" is created in DuckDB by default after UNNEST()
+-- We use a cross join because we have multiple arrays in our nested data, and to unnest in the right way (unnested rows match other unnested rows), we use a cross join
+
+--Which users are the most active reviewers over time?
+
+SET threads = 1;
+SET preserve_insertion_order = false;
+WITH processed_data AS (
+    SELECT
+
+        unnest(r1.review_data.reviews).author.steamid AS user_id
+    FROM (
+        SELECT
+            unnest(reviews) AS r1
+        FROM read_json(
+            'C:\Users\Acer\OneDrive\Documents\Datasets\steam_2025_5k-dataset-reviews_20250901.json',
+
+            maximum_object_size = 2147483648,
+            format = 'auto',
+
+            columns = {
+                reviews: 'STRUCT(review_data STRUCT(reviews STRUCT(author STRUCT(steamid VARCHAR))[]))[]'
+            }
+        )
+    )
+)
+SELECT
+    user_id,
+    COUNT(*) AS total_reviews,
+    RANK() OVER(ORDER BY COUNT(*) DESC) AS TOP_reviewers,
+    CASE
+        WHEN RANK() OVER(ORDER BY COUNT(*) DESC) <= 10 THEN 'Elite Power User'
+        WHEN COUNT(*) > 5 THEN 'Power User'
+        ELSE 'Casual'
+    END AS user_tier
+FROM processed_data
+WHERE user_id IS NOT NULL
+GROUP BY user_id
+ORDER BY TOP_reviewers;
+
+-- Identifying the most helpful Review per Game
+
+WITH RankedReviews AS (
+    SELECT
+        reviews_list.unnest.appid AS app_id,
+        review_detail.unnest.recommendationid AS review_id,
+        review_detail.unnest.votes_up,
+        review_detail.unnest.review AS review_text,
+        ROW_NUMBER() OVER(
+            PARTITION BY reviews_list.unnest.appid
+            ORDER BY review_detail.unnest.votes_up DESC
+        ) AS helpfulness_rank
+    FROM raw_reviews_json t
+    CROSS JOIN UNNEST(t.reviews) AS reviews_list
+    CROSS JOIN UNNEST(reviews_list.unnest.review_data.reviews) AS review_detail
+)
+SELECT *
+FROM RankedReviews
+WHERE helpfulness_rank = 1
+ORDER BY votes_up DESC;
