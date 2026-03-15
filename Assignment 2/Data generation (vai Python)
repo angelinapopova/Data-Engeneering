@@ -1,0 +1,56 @@
+import random
+import mysql.connector
+from faker import Faker
+
+fake = Faker()
+
+conn = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="MySQL_Student123",
+    database="support_call_center"
+)
+
+cursor = conn.cursor()
+
+teams = ["Support","Billing","Tech"]
+roles = ["Agent","Senior Agent","Supervisor"]
+
+for _ in range(50):
+    name = fake.name()
+    team = random.choice(teams)
+    role = random.choice(roles)
+    hire = fake.date_between(start_date="-5y", end_date="today")
+
+    cursor.execute(
+        "INSERT INTO employees (full_name, team, role, hire_date) VALUES (%s,%s,%s,%s)",
+        (name, team, role, hire)
+    )
+
+conn.commit()
+
+
+from datetime import datetime, timedelta
+
+for _ in range(300):
+
+    employee_id = random.randint(1,50)
+
+    call_time = fake.date_time_between(
+        start_date="-2d",
+        end_date="now"
+    )
+
+    phone = fake.msisdn()
+
+    direction = random.choice(["inbound","outbound"])
+    status = random.choice(["completed","missed"])
+
+    cursor.execute(
+        """INSERT INTO calls
+        (employee_id, call_time, phone, direction, status)
+        VALUES (%s,%s,%s,%s,%s)""",
+        (employee_id, call_time, phone, direction, status)
+    )
+
+conn.commit()
