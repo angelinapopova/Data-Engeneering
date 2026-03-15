@@ -1,0 +1,22 @@
+CREATE DATABASE support_call_center;
+USE support_call_center;
+
+CREATE TABLE employees (
+employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    team VARCHAR(50),
+    role VARCHAR(50),
+    hire_date DATE);
+
+CREATE TABLE calls (
+    call_id INT PRIMARY KEY AUTO_INCREMENT,
+    employee_id INT,
+    call_time DATETIME,
+    phone VARCHAR(20),
+    direction VARCHAR(10),
+    status VARCHAR(20),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
+SELECT * FROM employees;
+select * FROM calls;
