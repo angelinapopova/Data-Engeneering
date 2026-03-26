@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: int_customer_orders_history
+    description: "Історія замовлень клієнтів із використанням віконних функцій для визначення послідовності."
+    columns:
+      - name: customer_order_seq
+        description: "Порядковий номер замовлення для конкретного клієнта."
+
+  - name: int_order_items_summary
+    description: "Агреговані дані по товарах у розрізі кожного замовлення."
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
+  - name: int_product_performance
+    description: "Аналітика продажів товарів із рейтингом всередині категорій."
+    columns:
+      - name: category_rank
+        description: "Ранг товару за популярністю в його категорії."
+
+  - name: int_user_behavior_metrics
+    description: "Інкрементальна модель метрик активності користувачів (події)."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: int_order_delivery_delay
+    description: "Технічна модель для визначення затримок у доставці замовлень."
+
+  - name: int_supplier_products
+    description: "Зв'язок товарів із їхніми постачальниками."

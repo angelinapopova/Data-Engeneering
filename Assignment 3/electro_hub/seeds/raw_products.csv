@@ -1,0 +1,8 @@
+product_id,product_name,category,base_price
+101,Laptop Pro,Electronics,1200
+102,Smartphone X,electronics,800
+103,Coffee Maker,Home,150
+104,Desk Lamp,HOME,45
+105,Noise Cancelling Headphones,Electronics,300
+106,Broken Item,None,-99
+107,Monitor 4K,Electronics,

@@ -1,0 +1,8 @@
+user_id,user_name,email,country,signup_date
+1,Angelina,ang@kse.ua,Ukraine,2025-01-10
+2,John Doe,john@example.com,USA,2025-01-12
+3,Marta Silva,,Portugal,2025-02-01
+4,Alex Smith,alex@au.com,,2025-02-15
+5,Danylo,dan@kse.ua,Ukraine,2025-03-01
+1,Angelina,angelina_new@kse.ua,Ukraine,2025-01-10
+6,Guest_User,,,2026-01-01
