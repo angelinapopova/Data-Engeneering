@@ -1,0 +1,254 @@
+==================== 2026-03-26T15:40:45.613592Z | 7d881048-506c-4125-8b43-104a16ff5db5 ====================
+15:40:45.613725 [info ]: Starting dbt LSP server
+15:40:45.613782 [info ]: Connecting to LSP client on port 8000
+15:40:45.616006 [info ]: Successfully connected to LSP client
+15:40:45.616038 [info ]: Creating LSP service...
+15:40:45.682076 [info ]: Creating LSP server...
+15:40:45.682105 [info ]: Starting LSP server...
+15:40:45.779598 [info ]: Loading ~/.dbt/profiles.yml
+15:40:45.812579 [info ]: Started loading project
+15:40:45.813581 [info ]: Loading ~/.dbt/profiles.yml
+15:40:45.819863 [debug]:    Started loading packages
+15:40:45.829216 [debug]:     Loaded [  0.01s] packages
+15:40:45.830770 [info ]: Started parsing
+15:40:45.887334 [info ]: Finished loading project [  0.07s]
+15:40:45.891709 [debug]: Finished parsing models\intermediate\_int_models.yml [  0.00s]
+15:40:45.895591 [debug]: Finished parsing models\mart\_mart_models.yml [  0.00s]
+15:40:45.900476 [debug]: Finished parsing models\staging\_src_ecommerce.yml [  0.00s]
+15:40:45.952171 [debug]: Finished parsing models\intermediate\int_customer_orders_history.sql [  0.00s]
+15:40:45.954557 [debug]: Finished parsing models\intermediate\int_order_delivery_delay.sql [  0.00s]
+15:40:45.964894 [debug]: Finished parsing models\intermediate\int_order_items_summary.sql [  0.01s]
+15:40:45.975600 [debug]: Finished parsing models\intermediate\int_product_performance.sql [  0.01s]
+15:40:45.978058 [debug]: Finished parsing models\intermediate\int_supplier_products.sql [  0.00s]
+15:40:45.981907 [debug]: Finished parsing models\intermediate\int_user_behavior_metrics.sql [  0.00s]
+15:40:45.984334 [debug]: Finished parsing models\mart\dim_customers.sql [  0.00s]
+15:40:45.986709 [debug]: Finished parsing models\mart\dim_products.sql [  0.00s]
+15:40:45.989072 [debug]: Finished parsing models\mart\fct_orders.sql [  0.00s]
+15:40:45.991440 [debug]: Finished parsing models\mart\mart_customer_loyalty.sql [  0.00s]
+15:40:45.993720 [debug]: Finished parsing models\mart\mart_daily_operations.sql [  0.00s]
+15:40:45.995994 [debug]: Finished parsing models\mart\mart_full_order_details.sql [  0.00s]
+15:40:46.007268 [debug]: Finished parsing models\mart\mart_monthly_revenue.sql [  0.01s]
+15:40:46.009617 [debug]: Finished parsing models\mart\mart_product_category_stats.sql [  0.00s]
+15:40:46.022002 [debug]: Finished parsing models\staging\stg_events.sql [  0.01s]
+15:40:46.024590 [debug]: Finished parsing models\staging\stg_order_items.sql [  0.00s]
+15:40:46.027081 [debug]: Finished parsing models\staging\stg_orders.sql [  0.00s]
+15:40:46.029266 [debug]: Finished parsing models\staging\stg_products.sql [  0.00s]
+15:40:46.037599 [debug]: Finished parsing models\staging\stg_suppliers.sql [  0.01s]
+15:40:46.066005 [debug]: Finished parsing models\staging\stg_users.sql [  0.03s]
+15:40:46.070320 [debug]: Finished parsing target\generic_tests\accepted_values_dim_customers_96fab4ad49ac7e6bd18cb6d9a7c5f278.sql [  0.00s]
+15:40:46.071142 [debug]: Finished parsing target\generic_tests\unique_dim_customers_customer_id.sql [  0.00s]
+15:40:46.071866 [debug]: Finished parsing target\generic_tests\not_null_dim_customers_customer_id.sql [  0.00s]
+15:40:46.072725 [debug]: Finished parsing target\generic_tests\relationships_fct_orders_0c6c6d9e6f30dfb9b653557ebf38e47c.sql [  0.00s]
+15:40:46.073548 [debug]: Finished parsing target\generic_tests\unique_fct_orders_order_id.sql [  0.00s]
+15:40:46.074584 [debug]: Finished parsing target\generic_tests\not_null_fct_orders_order_id.sql [  0.00s]
+15:40:46.075682 [debug]: Finished parsing target\generic_tests\unique_int_order_items_summary_order_id.sql [  0.00s]
+15:40:46.076718 [debug]: Finished parsing target\generic_tests\not_null_int_order_items_summary_order_id.sql [  0.00s]
+15:40:46.077759 [debug]: Finished parsing target\generic_tests\unique_int_user_behavior_metrics_customer_id.sql [  0.00s]
+15:40:46.078826 [debug]: Finished parsing target\generic_tests\not_null_int_user_behavior_metrics_customer_id.sql [  0.00s]
+15:40:46.085154 [debug]: Finished parsing target\generic_tests\not_null_mart_monthly_revenue_order_month.sql [  0.01s]
+15:40:46.087909 [info ]: Finished parsing [  0.26s]
+15:40:46.089921 [info ]: Cached model count updated: 20 models (estimate)
+15:40:46.089955 [info ]: Cached model count updated: 20 models (accurate)
+15:40:46.090174 [info ]: Started scheduling
+15:40:46.090769 [info ]: Finished scheduling [  0.00s]
+15:40:46.090828 [debug]: Compilation - 25 nodes selected: {"model.electro_hub.dim_customers", "model.electro_hub.dim_products", "model.electro_hub.fct_orders", "model.electro_hub.int_customer_orders_history", "model.electro_hub.int_order_delivery_delay", "model.electro_hub.int_order_items_summary", "model.electro_hub.int_product_performance", "model.electro_hub.int_supplier_products", "model.electro_hub.int_user_behavior_metrics", "model.electro_hub.mart_customer_loyalty", "model.electro_hub.mart_daily_operations", "model.electro_hub.mart_full_order_details", "model.electro_hub.mart_monthly_revenue", "model.electro_hub.mart_product_category_stats", "model.electro_hub.stg_events", "model.electro_hub.stg_order_items", "model.electro_hub.stg_orders", "model.electro_hub.stg_products", "model.electro_hub.stg_suppliers", "model.electro_hub.stg_users", "seed.electro_hub.raw_events", "seed.electro_hub.raw_order_items", "seed.electro_hub.raw_orders", "seed.electro_hub.raw_products", "seed.electro_hub.raw_user"}
+15:40:46.090936 [info ]: Started scheduling
+15:40:46.091245 [info ]: Finished scheduling [  0.00s]
+15:40:46.091709 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dev", schema: "main", table: "raw_order_items" }) and interval: None
+15:40:46.091864 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dev", schema: "main", table: "raw_events" }) and interval: None
+15:40:46.091960 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dev", schema: "main", table: "raw_orders" }) and interval: None
+15:40:46.092041 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dev", schema: "main", table: "raw_user" }) and interval: None
+15:40:46.092116 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dev", schema: "main", table: "raw_products" }) and interval: None
+15:40:46.094306 [debug]:    Started downloading relations (1 items)
+15:40:46.243407 [debug]: Query executed on node unknown:
+SELECT table_catalog, table_schema, table_name, table_type FROM information_schema.tables WHERE table_schema = 'main'
+15:40:46.361007 [debug]:   Finished [  0.27s] downloading relations (1 items)
+15:40:46.361073 [info ]: Started downloading schemas
+15:40:46.376183 [debug]: Query executed on node unknown:
+DESCRIBE "dev"."main"."fct_orders";
+15:40:46.376184 [debug]: Query executed on node unknown:
+DESCRIBE "dev"."main"."int_user_behavior_metrics";
+15:40:47.378100 [debug]: Query executed on node unknown:
+DESCRIBE "dev"."main"."stg_orders";
+15:40:47.378147 [debug]: Query executed on node unknown:
+DESCRIBE "dev"."main"."stg_events";
+15:40:47.378258 [debug]: Query executed on node unknown:
+DESCRIBE "dev"."main"."stg_order_items";
+15:40:48.380551 [info ]: Finished downloading schemas [  2.02s]
+15:40:48.550952 [info ]: Started building task graph
+15:40:48.554890 [info ]: Finished building task graph [  0.00s]
+15:40:48.555568 [info ]: Started rendering (25 nodes)
+15:40:48.555645 [info ]: Started seed main.raw_user
+15:40:48.555726 [debug]: Started rendering seed main.raw_user
+15:40:48.555771 [info ]: Started seed main.raw_products
+15:40:48.555780 [debug]: Started rendering seed main.raw_products
+15:40:48.555791 [info ]: Started seed main.raw_orders
+15:40:48.555796 [debug]: Started rendering seed main.raw_orders
+15:40:48.555805 [info ]: Started seed main.raw_order_items
+15:40:48.555812 [debug]: Started rendering seed main.raw_order_items
+15:40:48.555823 [info ]: Started seed main.raw_events
+15:40:48.555827 [debug]: Started rendering seed main.raw_events
+15:40:48.555839 [info ]: Started model main.stg_suppliers
+15:40:48.555844 [debug]: Started rendering model main.stg_suppliers
+15:40:48.560024 [debug]: Compiled SQL for node model.electro_hub.stg_suppliers at target\.lsp\compiled\models\staging\stg_suppliers.sql
+15:40:48.560210 [info ]: Started analyzing (25 nodes)
+15:40:48.560231 [debug]: Started analyzing model main.stg_suppliers
+15:40:48.560284 [debug]: Finished rendering [  0.00s] model main.stg_suppliers [success]
+15:40:48.603545 [info ]:  Succeeded [  0.05s] model main.stg_suppliers (view)
+15:40:48.603583 [debug]: Finished analyzing [  0.04s] model main.stg_suppliers [success]
+15:40:48.605956 [debug]: Finished rendering [  0.05s] seed main.raw_orders [success]
+15:40:48.606043 [debug]: Started analyzing seed main.raw_orders
+15:40:48.606105 [debug]: Finished rendering [  0.05s] seed main.raw_user [success]
+15:40:48.606153 [debug]: Started analyzing seed main.raw_user
+15:40:48.606191 [debug]: Finished rendering [  0.05s] seed main.raw_order_items [success]
+15:40:48.606215 [debug]: Started analyzing seed main.raw_order_items
+15:40:48.606245 [debug]: Finished rendering [  0.05s] seed main.raw_events [success]
+15:40:48.606263 [debug]: Started analyzing seed main.raw_events
+15:40:48.606289 [debug]: Finished rendering [  0.05s] seed main.raw_products [success]
+15:40:48.606303 [debug]: Started analyzing seed main.raw_products
+15:40:48.606696 [info ]:  Succeeded [  0.05s] seed  main.raw_events (table)
+15:40:48.607067 [debug]: Finished analyzing [  0.00s] seed main.raw_events [success]
+15:40:48.607112 [info ]: Started model main.stg_events
+15:40:48.607138 [debug]: Started rendering model main.stg_events
+15:40:48.607279 [info ]:  Succeeded [  0.05s] seed  main.raw_orders (table)
+15:40:48.607322 [debug]: Finished analyzing [  0.00s] seed main.raw_orders [success]
+15:40:48.607350 [info ]: Started model main.stg_orders
+15:40:48.607367 [debug]: Started rendering model main.stg_orders
+15:40:48.607411 [info ]:  Succeeded [  0.05s] seed  main.raw_user (table)
+15:40:48.607435 [debug]: Finished analyzing [  0.00s] seed main.raw_user [success]
+15:40:48.607455 [info ]: Started model main.stg_users
+15:40:48.607467 [debug]: Started rendering model main.stg_users
+15:40:48.607494 [info ]:  Succeeded [  0.05s] seed  main.raw_products (table)
+15:40:48.607510 [debug]: Finished analyzing [  0.00s] seed main.raw_products [success]
+15:40:48.607528 [info ]: Started model main.stg_products
+15:40:48.607545 [debug]: Started rendering model main.stg_products
+15:40:48.607570 [info ]:  Succeeded [  0.05s] seed  main.raw_order_items (table)
+15:40:48.607587 [debug]: Finished analyzing [  0.00s] seed main.raw_order_items [success]
+15:40:48.607605 [info ]: Started model main.stg_order_items
+15:40:48.607623 [debug]: Started rendering model main.stg_order_items
+15:40:48.612550 [debug]: Compiled SQL for node model.electro_hub.stg_users at target\.lsp\compiled\models\staging\stg_users.sql
+15:40:48.612682 [debug]: Started analyzing model main.stg_users
+15:40:48.612724 [debug]: Compiled SQL for node model.electro_hub.stg_products at target\.lsp\compiled\models\staging\stg_products.sql
+15:40:48.612744 [debug]: Finished rendering [  0.01s] model main.stg_users [success]
+15:40:48.612790 [debug]: Started analyzing model main.stg_products
+15:40:48.612817 [debug]: Finished rendering [  0.01s] model main.stg_products [success]
+15:40:48.642779 [debug]: Compiled SQL for node model.electro_hub.stg_events at target\.lsp\compiled\models\staging\stg_events.sql
+15:40:48.642890 [debug]: Started analyzing model main.stg_events
+15:40:48.642891 [debug]: Finished rendering [  0.04s] model main.stg_events [success]
+15:40:48.643078 [debug]: Compiled SQL for node model.electro_hub.stg_orders at target\.lsp\compiled\models\staging\stg_orders.sql
+15:40:48.643147 [debug]: Compiled SQL for node model.electro_hub.stg_order_items at target\.lsp\compiled\models\staging\stg_order_items.sql
+15:40:48.643149 [debug]: Started analyzing model main.stg_orders
+15:40:48.643189 [debug]: Finished rendering [  0.04s] model main.stg_orders [success]
+15:40:48.643205 [debug]: Started analyzing model main.stg_order_items
+15:40:48.643241 [debug]: Finished rendering [  0.04s] model main.stg_order_items [success]
+15:40:48.647915 [info ]:  Succeeded [  0.04s] model main.stg_events (incremental)
+15:40:48.647963 [debug]: Finished analyzing [  0.01s] model main.stg_events [success]
+15:40:48.648013 [info ]: Started model main.int_user_behavior_metrics
+15:40:48.648033 [debug]: Started rendering model main.int_user_behavior_metrics
+15:40:48.652697 [info ]:  Succeeded [  0.04s] model main.stg_order_items (incremental)
+15:40:48.652743 [debug]: Finished analyzing [  0.01s] model main.stg_order_items [success]
+15:40:48.652780 [info ]: Started model main.int_order_items_summary
+15:40:48.652799 [debug]: Started rendering model main.int_order_items_summary
+15:40:48.655318 [debug]: Compiled SQL for node model.electro_hub.int_user_behavior_metrics at target\.lsp\compiled\models\intermediate\int_user_behavior_metrics.sql
+15:40:48.655545 [debug]: Finished rendering [  0.01s] model main.int_user_behavior_metrics [success]
+15:40:48.655605 [debug]: Started analyzing model main.int_user_behavior_metrics
+15:40:48.660049 [debug]: Compiled SQL for node model.electro_hub.int_order_items_summary at target\.lsp\compiled\models\intermediate\int_order_items_summary.sql
+15:40:48.660168 [debug]: Started analyzing model main.int_order_items_summary
+15:40:48.660217 [debug]: Finished rendering [  0.01s] model main.int_order_items_summary [success]
+15:40:48.675312 [info ]:  Succeeded [  0.07s] model main.stg_orders (incremental)
+15:40:48.675361 [debug]: Finished analyzing [  0.03s] model main.stg_orders [success]
+15:40:48.675395 [info ]: Started model main.int_order_delivery_delay
+15:40:48.675418 [debug]: Started rendering model main.int_order_delivery_delay
+15:40:48.678130 [debug]: Compiled SQL for node model.electro_hub.int_order_delivery_delay at target\.lsp\compiled\models\intermediate\int_order_delivery_delay.sql
+15:40:48.678400 [debug]: Finished rendering [  0.00s] model main.int_order_delivery_delay [success]
+15:40:48.678504 [debug]: Started analyzing model main.int_order_delivery_delay
+15:40:48.678724 [info ]:  Succeeded [  0.03s] model main.int_user_behavior_metrics (incremental)
+15:40:48.678767 [debug]: Finished analyzing [  0.02s] model main.int_user_behavior_metrics [success]
+15:40:48.684066 [info ]:  Succeeded [  0.03s] model main.int_order_items_summary (view)
+15:40:48.684112 [debug]: Finished analyzing [  0.02s] model main.int_order_items_summary [success]
+15:40:48.684149 [info ]: Started model main.fct_orders
+15:40:48.684167 [debug]: Started rendering model main.fct_orders
+15:40:48.685022 [info ]:  Succeeded [  0.08s] model main.stg_products (view)
+15:40:48.685072 [debug]: Finished analyzing [  0.07s] model main.stg_products [success]
+15:40:48.685107 [info ]: Started model main.int_supplier_products
+15:40:48.685127 [debug]: Started rendering model main.int_supplier_products
+15:40:48.685164 [info ]: Started model main.int_product_performance
+15:40:48.685184 [debug]: Started rendering model main.int_product_performance
+15:40:48.686138 [info ]:  Succeeded [  0.08s] model main.stg_users (view)
+15:40:48.686186 [debug]: Finished analyzing [  0.07s] model main.stg_users [success]
+15:40:48.686221 [info ]: Started model main.dim_customers
+15:40:48.686238 [debug]: Started rendering model main.dim_customers
+15:40:48.686266 [info ]: Started model main.int_customer_orders_history
+15:40:48.686274 [debug]: Started rendering model main.int_customer_orders_history
+15:40:48.688639 [debug]: Compiled SQL for node model.electro_hub.fct_orders at target\.lsp\compiled\models\mart\fct_orders.sql
+15:40:48.688759 [debug]: Started analyzing model main.fct_orders
+15:40:48.688762 [debug]: Finished rendering [  0.00s] model main.fct_orders [success]
+15:40:48.691414 [debug]: Compiled SQL for node model.electro_hub.int_customer_orders_history at target\.lsp\compiled\models\intermediate\int_customer_orders_history.sql
+15:40:48.691519 [debug]: Started analyzing model main.int_customer_orders_history
+15:40:48.691559 [debug]: Compiled SQL for node model.electro_hub.dim_customers at target\.lsp\compiled\models\mart\dim_customers.sql
+15:40:48.691583 [debug]: Started analyzing model main.dim_customers
+15:40:48.691617 [debug]: Finished rendering [  0.01s] model main.int_customer_orders_history [success]
+15:40:48.701446 [debug]: Compiled SQL for node model.electro_hub.int_supplier_products at target\.lsp\compiled\models\intermediate\int_supplier_products.sql
+15:40:48.701560 [debug]: Started analyzing model main.int_supplier_products
+15:40:48.701612 [debug]: Finished rendering [  0.02s] model main.int_supplier_products [success]
+15:40:48.702053 [debug]: Finished rendering [  0.02s] model main.dim_customers [success]
+15:40:48.704242 [debug]: Compiled SQL for node model.electro_hub.int_product_performance at target\.lsp\compiled\models\intermediate\int_product_performance.sql
+15:40:48.704341 [debug]: Started analyzing model main.int_product_performance
+15:40:48.704391 [debug]: Finished rendering [  0.02s] model main.int_product_performance [success]
+15:40:48.716598 [info ]:  Succeeded [  0.03s] model main.int_supplier_products (view)
+15:40:48.716642 [debug]: Finished analyzing [  0.02s] model main.int_supplier_products [success]
+15:40:48.716673 [info ]: Started model main.dim_products
+15:40:48.716688 [debug]: Started rendering model main.dim_products
+15:40:48.719942 [debug]: Compiled SQL for node model.electro_hub.dim_products at target\.lsp\compiled\models\mart\dim_products.sql
+15:40:48.720045 [debug]: Started analyzing model main.dim_products
+15:40:48.720077 [debug]: Finished rendering [  0.00s] model main.dim_products [success]
+15:40:48.724181 [info ]:  Succeeded [  0.04s] model main.dim_customers (view)
+15:40:48.724468 [debug]: Finished analyzing [  0.03s] model main.dim_customers [success]
+15:40:48.724517 [info ]:  Succeeded [  0.04s] model main.fct_orders (incremental)
+15:40:48.724537 [debug]: Finished analyzing [  0.04s] model main.fct_orders [success]
+15:40:48.724564 [info ]: Started model main.mart_daily_operations
+15:40:48.724580 [debug]: Started rendering model main.mart_daily_operations
+15:40:48.724612 [info ]: Started model main.mart_monthly_revenue
+15:40:48.724624 [debug]: Started rendering model main.mart_monthly_revenue
+15:40:48.724641 [info ]: Started model main.mart_full_order_details
+15:40:48.724650 [debug]: Started rendering model main.mart_full_order_details
+15:40:48.726629 [info ]:  Succeeded [  0.05s] model main.int_order_delivery_delay (view)
+15:40:48.726681 [debug]: Finished analyzing [  0.05s] model main.int_order_delivery_delay [success]
+15:40:48.729949 [info ]:  Succeeded [  0.01s] model main.dim_products (view)
+15:40:48.729997 [debug]: Finished analyzing [  0.01s] model main.dim_products [success]
+15:40:48.730463 [debug]: Compiled SQL for node model.electro_hub.mart_daily_operations at target\.lsp\compiled\models\mart\mart_daily_operations.sql
+15:40:48.730590 [debug]: Started analyzing model main.mart_daily_operations
+15:40:48.730669 [debug]: Finished rendering [  0.01s] model main.mart_daily_operations [success]
+15:40:48.731496 [debug]: Compiled SQL for node model.electro_hub.mart_monthly_revenue at target\.lsp\compiled\models\mart\mart_monthly_revenue.sql
+15:40:48.731604 [debug]: Started analyzing model main.mart_monthly_revenue
+15:40:48.731659 [debug]: Finished rendering [  0.01s] model main.mart_monthly_revenue [success]
+15:40:48.734527 [info ]:  Succeeded [  0.01s] model main.mart_daily_operations (view)
+15:40:48.734579 [debug]: Finished analyzing [  0.00s] model main.mart_daily_operations [success]
+15:40:48.735052 [info ]:  Succeeded [  0.05s] model main.int_customer_orders_history (view)
+15:40:48.735097 [debug]: Finished analyzing [  0.04s] model main.int_customer_orders_history [success]
+15:40:48.735148 [info ]: Started model main.mart_customer_loyalty
+15:40:48.735167 [debug]: Started rendering model main.mart_customer_loyalty
+15:40:48.735219 [debug]: Compiled SQL for node model.electro_hub.mart_full_order_details at target\.lsp\compiled\models\mart\mart_full_order_details.sql
+15:40:48.735296 [debug]: Started analyzing model main.mart_full_order_details
+15:40:48.735367 [debug]: Finished rendering [  0.01s] model main.mart_full_order_details [success]
+15:40:48.739117 [info ]:  Succeeded [  0.05s] model main.int_product_performance (view)
+15:40:48.739163 [debug]: Finished analyzing [  0.03s] model main.int_product_performance [success]
+15:40:48.739209 [info ]: Started model main.mart_product_category_stats
+15:40:48.739225 [debug]: Started rendering model main.mart_product_category_stats
+15:40:48.745636 [info ]:  Succeeded [  0.02s] model main.mart_full_order_details (view)
+15:40:48.745688 [debug]: Finished analyzing [  0.01s] model main.mart_full_order_details [success]
+15:40:48.746050 [debug]: Compiled SQL for node model.electro_hub.mart_customer_loyalty at target\.lsp\compiled\models\mart\mart_customer_loyalty.sql
+15:40:48.746132 [debug]: Started analyzing model main.mart_customer_loyalty
+15:40:48.746152 [debug]: Finished rendering [  0.01s] model main.mart_customer_loyalty [success]
+15:40:48.747654 [debug]: Compiled SQL for node model.electro_hub.mart_product_category_stats at target\.lsp\compiled\models\mart\mart_product_category_stats.sql
+15:40:48.747782 [debug]: Started analyzing model main.mart_product_category_stats
+15:40:48.747802 [debug]: Finished rendering [  0.01s] model main.mart_product_category_stats [success]
+15:40:48.747867 [info ]: Finished rendering [  0.19s] (25 nodes, 0 skipped, 0 errors)
+15:40:48.751884 [info ]:  Succeeded [  0.01s] model main.mart_product_category_stats (view)
+15:40:48.751931 [debug]: Finished analyzing [  0.00s] model main.mart_product_category_stats [success]
+15:40:48.752104 [info ]:  Succeeded [  0.03s] model main.mart_monthly_revenue (view)
+15:40:48.752152 [debug]: Finished analyzing [  0.02s] model main.mart_monthly_revenue [success]
+15:40:48.754944 [info ]:  Succeeded [  0.02s] model main.mart_customer_loyalty (view)
+15:40:48.755002 [debug]: Finished analyzing [  0.01s] model main.mart_customer_loyalty [success]
+15:40:48.755014 [info ]: Finished analyzing [  0.19s] (25 nodes, 0 skipped, 0 errors)
+15:40:48.764270 [info ]: Cached model count updated: 20 models (accurate)

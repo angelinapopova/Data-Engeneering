@@ -1,0 +1,1 @@
+{{ test_accepted_values(column_name="country", model=get_where_subquery(ref('dim_customers')), values=["Ukraine","USA","Portugal","Australia","Unknown"]) }}
